@@ -1,0 +1,11 @@
+__pycache__/
+.ipynb_checkpoints/
+data_mnist/
+data/
+weights/
+exps/
+/config.py
+.DS_Store
+.venv
+.vscode
+plots/
