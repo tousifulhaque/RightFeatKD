@@ -45,7 +45,7 @@ class DistillationLoss(nn.Module):
             ## comparing only correct knowledge ## 
             teacher_pred = (torch.sigmoid(teacher_logits) > 0.5).int().squeeze(1)
             correct_mask = (teacher_pred ==labels).float()
-            weights =(0 /1.5) * correct_mask + (1.5/1.5)* (1 - correct_mask)
+            weights =(1.0 /1.5) * correct_mask + (.5/1.5)* (1 - correct_mask)
             # weights = weights.view(-1, 1, 1)
             cosine_loss = (weights.view(-1, 1,1) * self.embeddin_loss(soft_prob,soft_teacher)).mean()
             #print(cosine_loss)

@@ -1,9 +1,9 @@
 #!/bin/bash
 teacher_weights="spTransformer"
 student_dir="exps/smartfallmm/hparam/student/watch_acc"
-work_dir="exps/smartfall_kd/hparam/weights/watch_acc_weight0"
+work_dir="exps/smartfall_kd/hparam/new/watch_acc_weight0"
 student_weights="ttfstudent"
-teacher_dir="exps/smartfallmm/hparam/teacher/skeleton_embed32"
+teacher_dir="exps/smartfallmm/hparam/teacher/new/skeleton_embed32"
 result_file="result.txt"
 
 # Clear Python caches
@@ -43,7 +43,7 @@ find . -name "*.pyc" -delete 2>/dev/null
 
 #accelerometer only experiment
 #python main.py --config ./config/smartfallmm/student.yaml --work-dir $student_dir --model-saved-name $student_weights --device 2  --include-val True
-#python main.py --config ./config/smartfallmm/teacher.yaml --work-dir $teacher_dir --model-saved-name $teacher_weights --device 1 --base-lr 1e-3 --include-val True
+python main.py --config ./config/smartfallmm/teacher.yaml --work-dir $teacher_dir --model-saved-name $teacher_weights --device 1 --base-lr 1e-3 --include-val True
 
 
 #distillation 
